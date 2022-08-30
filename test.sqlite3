@@ -1,0 +1,7 @@
+-- SQLite
+CREATE TABLE data
+(
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL
+);
