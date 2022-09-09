@@ -1,0 +1,297 @@
+{% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1"
+    />
+
+    <title>Insurance | Insurances type</title>
+
+    <!-- Loading third party fonts -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link href="{% static "fonts/font-awesome.min.css" %}" rel="stylesheet"
+    type="text/css" /> <link href="{% static "fonts/lineo-icon/style.css" %}"
+    rel="stylesheet" type="text/css" />
+
+    <!-- Loading main css file -->
+
+    <link rel="stylesheet" href="{% static "style.css" %}" />
+
+    <!--[if lt IE 9]>
+      <script src="js/ie-support/html5.js"></script>
+      <script src="js/ie-support/respond.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+   
+
+    <div id="site-content">
+      <header class="site-header">
+        <div class="top-header">
+          <div class="container">
+            <a href="home_page" id="branding">
+              
+              <img src="{% static "images/logo.png" %}" alt="Milan Insurance" class="logo" />
+              <div class="logo-text">
+                <h1 class="site-title">Milan Insurance</h1>
+                <small class="description">Taline goes here</small>
+              </div>
+            </a>
+            <!-- #branding -->
+
+            <div class="right-section pull-right">
+              <a href="#" class="phone"
+              
+                ><img src="{% static "images/icon-phone.png" %}" class="icon" />+1 999 999
+                999</a
+              >
+
+              <form action="#" class="search-form">
+                <input type="text" placeholder="Search..." />
+                <button type="submit">
+                  <img src="{% static "images/icon-search.png" %}" alt="" />
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- .container -->
+        </div>
+        <!-- .top-header -->
+
+        <div class="bottom-header">
+          <div class="container">
+            <div class="main-navigation">
+              <button type="button" class="menu-toggle">
+                <i class="fa fa-bars"></i>
+              </button>
+              <ul class="menu">
+                <li class="menu-item">
+                  <a href="home_page">Home</a>
+                </li>
+                <!-- login page -->
+                
+                <li class="menu-item">
+                  <a href="UIInvenory">Plans</a>
+                </li>
+                <li class="menu-item">
+                  <a href="check_vehicle">Seach For Car Details</a>
+                </li>
+                <li class="menu-item">
+                  <a href="http://127.0.0.1:8000/">Login</a>
+                </li>
+                <li class="menu-item">
+                  <a href="contactus">Contact</a>
+                </li>
+              </ul>
+              <!-- .menu -->
+            </div>
+            <!-- .main-navigation -->
+
+            <!-- <div class="social-links">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+              <a href="#"><i class="fa fa-pinterest"></i></a>
+            </div> -->
+
+            <div class="mobile-navigation"></div>
+          </div>
+        </div>
+      </header>
+          <!-- .site-header -->
+      <!-- .site-header -->
+
+      <main class="main-content">
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="home_page">Home</a>
+                <span>Vehicle Details</span>
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="container">
+                
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="section-title text-left">Search Your Vehicle</h2>
+
+                        <div class="contact-detail">
+                            <address>
+                                <p>Enter Below Details. <br>
+                                    523 Burt Street, Omaha</p>
+
+                                <p>Phone: +1 823 424 9134
+                                    info@company.com</p>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h2 class="section-title text-left">Get Car Details</h2>
+                        <form  class="contact-form">
+                            <div class="row">
+                                <div class="col-md-4"><input type="text" id="car_number" placeholder="Car Number..."></div>
+                                <div class="col-md-4"><input type="text"  id="owner_name" placeholder="Owner Name..."></div>
+                                <div class="col-md-4"><input type="text"  id="mobile_number" placeholder="Mobile Number..."></div>
+                            </div>
+
+                           
+
+                            <p class="text-right">
+                                <input type="button" onclick="check_car()" value="Send message">
+                            </p>
+                        </form>
+
+
+
+
+
+                <div class="container" id="display_details" style="display:none ;"> 
+
+                    
+                       <h2 style="color:Black ;">Car details</h2>
+                       <form  class="contact-form">
+                       <p style="font-weight: 600;font-size: large;">Car Number : <a id="car_num">MH12Mn1998</a></p>
+                       <p style="font-weight: 600;font-size: large;">Owner Name : <a id="o_name">MH12Mn1998</a></p>
+                       <p style="font-weight: 600;font-size: large;">Mobile Number : <a id="phone">MH12Mn1998</a></p>
+                       <p style="font-weight: 600;font-size: large;">Last Insurance Buying Date : <a id="l_data">MH12Mn1998</a></p>
+                       <p style="font-weight: 600;font-size: large;">Last Insurance Expiring Date : <a id="e_data">MH12Mn1998</a></p>
+                       
+                       <p class="text-right">
+                        <a href="UIInvenory"><input type="button"  value="Buy New Insurance"></a>
+                    </p></form>
+                        </div>
+
+                        <div class="container" id="display_error" style="display:none ;"> 
+
+                    
+                            <h2 style="color:RED ;">Wrong Car Details</h2>
+                            </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .page -->
+    </main>
+
+
+<script>
+
+function check_car(){
+   var c_number=document.getElementById("car_number").value;
+   var o_name=document.getElementById("owner_name").value;
+   var m_number=document.getElementById("mobile_number").value;
+
+
+   car_details=[{
+    "car_number": "MH12MN1998",
+    "details": {
+        "car_number": "MH12MN1998",
+        "owner_Nmae":"Annad Mishra",
+        "insurance_taken_Date": "12/12/2022",
+        "insurance_expiry_Date":"12/12/2023",
+        "mobile_number":"8793300629"
+
+    }
+   },
+   {
+    "car_number": "MH12MN1955",
+    "details": {
+        "car_number": "MH12MN1955",
+        "owner_Nmae":"Rohit pawar",
+        "insurance_taken_Date": "12/12/2016",
+        "insurance_expiry_Date":"12/12/2019",
+        "mobile_number":"8793300628"
+
+    }
+   },
+   {
+    "car_number": "MH12MN8974",
+    "details": {
+        "car_number": "MH12MN8974",
+        "owner_Nmae":"Annad Mishra",
+        "insurance_taken_Date": "12/12/2021",
+        "insurance_expiry_Date":"12/12/2022",
+        "mobile_number":"8793301627"
+
+    }
+   },
+   {
+    "car_number": "MH12MN1994",
+    "details": {
+        "car_number": "MH12MN1994",
+        "owner_Nmae":"Rajas Chaudhari",
+        "insurance_taken_Date": "12/12/2019",
+        "insurance_expiry_Date":"12/12/2021",
+        "mobile_number":"8793300626"
+
+    }
+   },
+   {
+    "car_number": "MH12MN4578",
+    "details": {
+        "car_number": "MH12MN4578",
+        "owner_Nmae":"Sourav Joshi",
+        "insurance_taken_Date": "12/12/2020",
+        "insurance_expiry_Date":"12/12/2021",
+        "mobile_number":"8793300625"
+
+    }
+   }
+
+]
+
+var flag=0;
+car_details.forEach(element => {
+    
+    if (element["car_number"].toLowerCase()==c_number.toLowerCase()){
+        flag=1;
+        console.log("called 1");
+        if(element["details"]['owner_Nmae'].split(" ").join("").toLowerCase()==o_name.split(" ").join("").toLowerCase() && element["details"]['mobile_number'].toLowerCase()==m_number.toLowerCase()){
+            
+            document.getElementById("car_num").innerHTML =c_number;
+            document.getElementById("o_name").innerHTML =element["details"]['owner_Nmae']
+            document.getElementById("phone").innerHTML =element["details"]['mobile_number']
+            document.getElementById("l_data").innerHTML =element["details"]['insurance_taken_Date']
+            document.getElementById("e_data").innerHTML =element["details"]['insurance_expiry_Date']
+
+            document.getElementById("display_details").style.display = "block";
+            document.getElementById("display_error").style.display = "none";
+            console.log("called 2");
+            console.log("called 2");
+        }else{
+            document.getElementById("display_details").style.display = "none";
+            document.getElementById("display_error").style.display = "block";
+            console.log("called 2");
+        }
+    }else{
+            if(flag==0){
+                document.getElementById("display_details").style.display = "none";
+                document.getElementById("display_error").style.display = "block";
+            console.log("called 2");
+            }
+        }
+});
+console.log(flag);
+  
+}
+
+    </script>
+    <script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+    <script src="{% static "js/plugins.js" %}" ></script>
+    <script src="{% static "js/app.js" %}" ></script>
+  </body>
+</html>
+{% endblock content %}

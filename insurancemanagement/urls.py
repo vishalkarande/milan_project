@@ -50,5 +50,8 @@ urlpatterns = [
 
     path('admin-question', views.admin_question_view,name='admin-question'),
     path('update-question/<int:pk>', views.update_question_view,name='update-question'),
+    path('UIInvenory', views.UIInvenory,name='UIInvenory'),
+    path('check_vehicle', views.check_vehicle,name='check_vehicle'),
+    path('home_page', views.home_page,name='home_page'),
 
 ]

@@ -1,3 +1,4 @@
+from logging import exception
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.db.models import Sum
@@ -258,11 +259,28 @@ def contactus_view(request):
     sub = forms.ContactusForm()
     if request.method == 'POST':
         sub = forms.ContactusForm(request.POST)
-        if sub.is_valid():
-            email = sub.cleaned_data['Email']
-            name=sub.cleaned_data['Name']
-            message = sub.cleaned_data['Message']
-            send_mail(str(name)+' || '+str(email),message,settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+        try:
+            if sub.is_valid():
+                email = sub.cleaned_data['Email']
+                name=sub.cleaned_data['Name']
+                message = sub.cleaned_data['Message']
+                send_mail(str(name)+' || '+str(email),message,settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+                return render(request, 'insurance/contactussuccess.html')
+            else:
+                return render(request, 'insurance/contactussuccess.html')
+        except Exception as e:
             return render(request, 'insurance/contactussuccess.html')
     return render(request, 'insurance/contactus.html', {'form':sub})
 
+def UIInvenory(request):
+    policies = models.Policy.objects.all()
+    return render(request,'UI/insurance.html',{'policies':policies})
+    
+
+def check_vehicle(request):
+    policies = models.Policy.objects.all()
+    return render(request,'UI/check_vehicle.html',{'policies':policies})
+
+def home_page(request):
+    policies = models.Policy.objects.all()
+    return render(request,'UI/index.html',{'policies':policies})

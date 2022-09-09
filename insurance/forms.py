@@ -4,7 +4,7 @@ from . import models
 
 class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
-    Email = forms.EmailField(min_length=30)
+    Email = forms.EmailField(min_length=10)
     Message = forms.CharField(max_length=500,widget=forms.Textarea(attrs={'rows': 3, 'cols': 25}))
 
 
