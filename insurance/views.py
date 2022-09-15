@@ -284,3 +284,4 @@ def check_vehicle(request):
 def home_page(request):
     policies = models.Policy.objects.all()
     return render(request,'UI/index.html',{'policies':policies})
+

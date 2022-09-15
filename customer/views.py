@@ -91,3 +91,7 @@ def question_history_view(request):
     questions = CMODEL.Question.objects.all().filter(customer=customer)
     return render(request,'customer/question_history.html',{'questions':questions,'customer':customer})
 
+def apply_claim(request):
+    customer = models.Customer.objects.get(user_id=request.user.id)
+    policies = CMODEL.Policy.objects.all()
+    return render(request,'customer/apply_claim.html',{'policies':policies,'customer':customer})
