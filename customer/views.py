@@ -92,24 +92,37 @@ def question_history_view(request):
     return render(request,'customer/question_history.html',{'questions':questions,'customer':customer})
 
 def apply_claim(request):
-    print("page loaded")
+    customer = models.Customer.objects.get(user_id=request.user.id)
+    print(customer)
     claim_form=forms.claim_policy() 
-    print(request)
-    print(claim_form)
+    # print(request)
+    # print(claim_form)
     if request.method=='POST':
         claim_form=forms.claim_policy(request.POST)
         print("claim Form", claim_form)
-        if claim_form.is_valid():
-            # categoryid = request.POST.get('category')
-            # category = models.Category.objects.get(id=categoryid)
+        try:
+            if claim_form.is_valid():
+                # categoryid = request.POST.get('category')
+                # category = models.Category.objects.get(id=categoryid)
+                
+                # policy = claim_form.save(commit=False)
+                # policy.category=category
+                # policy.save()
             
-            # policy = claim_form.save(commit=False)
-            # policy.category=category
-            # policy.save()
-            claim = claim_form.save()
-            print("save called")
-            return redirect('admin-view-policy')
-    return render(request,'customer/apply_claim.html',{'claim_form':claim_form})
+                
+                claim = claim_form.save(commit=False)
+                claim.customer_id=customer
+                claim.save()
+                print("save called")
+                return redirect('admin-view-policy')
+        except Exception as e:
+            print(e)
+    print(customer)
+    return render(request,'customer/apply_claim.html',{'claim_form':claim_form,'customer':customer})
 
 
-    
+def claim_view(request):
+    customer = models.Customer.objects.get(user_id=request.user.id)
+    policy_claim = models.policy_claim.objects.all()
+    print(policy_claim)
+    return render(request,'customer/claim_view.html',{'policy_claim':policy_claim,'customer':customer})

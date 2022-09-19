@@ -1,4 +1,6 @@
-{% extends 'customer/customerbase.html' %} {% block content %} {%load static%}
+{% extends 'customer/customerbase.html' %}
+{% block content %} 
+{%load static%}
 
 <head>
   <link
@@ -47,7 +49,7 @@
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="text-center">Available Policies</h3>
+      <h3 class="text-center">View My Claims</h3>
     </div>
     <table
       class="table table-hover table-striped table-bordered"
@@ -62,9 +64,11 @@
           <th>Date</th>
           <th>Policy Name</th>
           <th>Discription</th>
+          <th>User Name</th>
         </tr>
       </thead>
       {% for t in policy_claim %}
+
       <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{t.mobile_no}}</td>
@@ -72,7 +76,9 @@
         <td>{{t.date}}</td>
         <td>{{t.policy_name}}</td>
         <td>{{t.discr}}</td>
+        <td>{{t.customer_id}}</td>
       </tr>
+
       {% endfor %}
     </table>
   </div>

@@ -23,6 +23,7 @@ class policy_claim(models.Model):
     date=models.CharField(max_length=200)
     policy_name=models.CharField(max_length=200)
     discr=models.CharField(max_length=400)
+    customer_id=models.CharField(max_length=200)
    
     def __str__(self):
         return self.place
