@@ -1,4 +1,6 @@
-{% extends 'customer/customerbase.html' %} {% block content %} {%load static%}
+{% extends 'customer/customerbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link
@@ -23,18 +25,20 @@
 </head>
 <h2 style="text-align: center">CLAIM POLICY</h2>
 <form method="POST" autocomplete="off" style="margin: 100px; margin-top: 0px">
+  {%csrf_token%}
   <div class="form-group">
     <label for="course_name">Mobile Number </label>
-    <input type="text" class="form-control" /><br />
+    {% render_field claim_form.mobile_no class="form-control" placeholder="Mobile Number" %}
+
     <label for="course_name">Accident Place </label>
-    <input type="text" class="form-control" /><br />
+    {% render_field claim_form.place class="form-control" placeholder="Place" %}
     <label for="course_name">Accident Date </label>
-    <input type="date" class="form-control" /><br />
+    {% render_field claim_form.date class="form-control" placeholder="Date" %}
     <label for="course_name">Owner / policy name</label>
-    <input type="text" class="form-control" />
+    {% render_field claim_form.policy_name class="form-control" placeholder="Policy Name" %}
     <br />
     <label for="course_name">Damage part In details</label>
-    <textarea name="textarea" rows="4" class="form-control"></textarea><br />
+    {% render_field claim_form.discr class="form-control" placeholder="Details"%}
   </div>
 
   <br />

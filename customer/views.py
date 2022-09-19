@@ -92,6 +92,24 @@ def question_history_view(request):
     return render(request,'customer/question_history.html',{'questions':questions,'customer':customer})
 
 def apply_claim(request):
-    customer = models.Customer.objects.get(user_id=request.user.id)
-    policies = CMODEL.Policy.objects.all()
-    return render(request,'customer/apply_claim.html',{'policies':policies,'customer':customer})
+    print("page loaded")
+    claim_form=forms.claim_policy() 
+    print(request)
+    print(claim_form)
+    if request.method=='POST':
+        claim_form=forms.claim_policy(request.POST)
+        print("claim Form", claim_form)
+        if claim_form.is_valid():
+            # categoryid = request.POST.get('category')
+            # category = models.Category.objects.get(id=categoryid)
+            
+            # policy = claim_form.save(commit=False)
+            # policy.category=category
+            # policy.save()
+            claim = claim_form.save()
+            print("save called")
+            return redirect('admin-view-policy')
+    return render(request,'customer/apply_claim.html',{'claim_form':claim_form})
+
+
+    

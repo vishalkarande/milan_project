@@ -15,3 +15,16 @@ class Customer(models.Model):
         return self
     def __str__(self):
         return self.user.first_name
+
+#model policy_claim
+class policy_claim(models.Model):
+    mobile_no= models.PositiveIntegerField()
+    place=models.CharField(max_length=200)
+    date=models.CharField(max_length=200)
+    policy_name=models.CharField(max_length=200)
+    discr=models.CharField(max_length=400)
+   
+    def __str__(self):
+        return self.place
+
+

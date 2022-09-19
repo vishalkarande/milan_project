@@ -90,6 +90,7 @@ def delete_customer_view(request,pk):
 
 
 
+@login_required(login_url='adminlogin')
 def admin_category_view(request):
     return render(request,'insurance/admin_category.html')
 

@@ -6,7 +6,8 @@ class Category(models.Model):
     creation_date =models.DateField(auto_now=True)
     def __str__(self):
         return self.category_name
-
+        
+#nodel policy
 class Policy(models.Model):
     category= models.ForeignKey('Category', on_delete=models.CASCADE)
     policy_name=models.CharField(max_length=200)
