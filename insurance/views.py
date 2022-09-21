@@ -286,3 +286,9 @@ def home_page(request):
     policies = models.Policy.objects.all()
     return render(request,'UI/index.html',{'policies':policies})
 
+def view_claim(request):
+    
+    policy_claim = CMODEL.policy_claim.objects.all()
+    print(policy_claim)
+    return render(request,'insurance/view_claim.html',{'policy_claim':policy_claim})
+

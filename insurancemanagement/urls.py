@@ -53,6 +53,7 @@ urlpatterns = [
     path('UIInvenory', views.UIInvenory,name='UIInvenory'),
     path('check_vehicle', views.check_vehicle,name='check_vehicle'),
     path('home_page', views.home_page,name='home_page'),
+    path('view_claim', views.view_claim,name='view_claim'),
     
 
 ]
